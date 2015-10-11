@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/feed_item_background_color"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/userImage"
+        android:text="karanjohar"
+        android:textColor="@color/text_color_gray"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/relativeTS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="44m"
+        android:textColor="@color/text_color_gray"
+        android:textStyle="normal" />
+
+</RelativeLayout>
