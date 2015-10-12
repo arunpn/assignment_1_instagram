@@ -1,6 +1,10 @@
 package com.arunpn.photoapp.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,8 +49,9 @@ public class CommentsAdapter extends ArrayAdapter<CommentDetail> {
 
         CommentDetail commentDetail = getItem(position);
         if(commentDetail.getCommentText()!=null && commentDetail.getUser()!=null ) {
-            holder.userName.setText(commentDetail.getUser().getUsername()+" : ");
-            holder.userName.append(commentDetail.getCommentText());
+            Spannable commentText = new SpannableString(commentDetail.getUser().getUsername()+" : "+commentDetail.getCommentText());
+            commentText.setSpan(new ForegroundColorSpan(Color.parseColor("#2d5d82")),0,commentDetail.getUser().getUsername().length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            holder.userName.setText(commentText,TextView.BufferType.SPANNABLE);
         }
 
         if(commentDetail.getUser().getProfilePicture()!=null ) {

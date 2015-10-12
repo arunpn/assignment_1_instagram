@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -95,7 +96,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="2dp"
             android:layout_marginLeft="1dp"
             android:textColor="@color/text_color_blue"
             android:layout_toRightOf="@id/likeBlueImage"
@@ -112,8 +113,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/likesLayout"
-        android:padding="10dp"
+        android:padding="2dp"
         android:text="10800 likes"
+        android:textColor="@color/text_color_gray"
         android:id="@+id/captionUsername"/>
 
     <TextView
@@ -121,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/captionUsername"
-        android:padding="5dp"
+        android:padding="2dp"
         android:text="view all 234 comments"
         android:visibility="gone"
         android:id="@+id/allCommentsURL"/>
@@ -143,12 +145,6 @@
         android:text="view all 234 comments"
         android:visibility="gone"
         android:id="@+id/comment_two"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:layout_below="@id/comment_two"
-        />
 
 
 </RelativeLayout>

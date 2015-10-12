@@ -2,6 +2,7 @@ package com.arunpn.photoapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -40,10 +41,6 @@ public class FeedAdapter extends ArrayAdapter<Photo> {
     public FeedAdapter(Context context,  List<Photo> objects) {
         super(context, 0, objects);
         this.mContext = context;
-//        this.wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-//        this.display = wm.getDefaultDisplay();
-//        this.size = wm
-
     }
 
     @Override
@@ -67,13 +64,9 @@ public class FeedAdapter extends ArrayAdapter<Photo> {
         holder.userName.setText(photo.getUser().getUsername());
         holder.relativeTS.setText(photo.getRelativeDate());
 
-        Spannable captionUser = new SpannableString(photo.getCaption().getUser().getUsername());
-        captionUser.setSpan(new ForegroundColorSpan(R.color.text_color_gray), 0, captionUser.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        holder.captionUsername.setText(captionUser);
-        holder.captionUsername.append(" : ");
-        Spannable captionText = new SpannableString(photo.getCaption().getCaptionText());
-        captionText.setSpan(new ForegroundColorSpan(R.color.text_color_black), 0, captionText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        holder.captionUsername.append(captionText);
+        Spannable text2 = new SpannableString(photo.getCaption().getUser().getUsername()+" : "+photo.getCaption().getCaptionText());
+        text2.setSpan(new ForegroundColorSpan(Color.parseColor("#2d5d82")),0,photo.getCaption().getUser().getUsername().length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        holder.captionUsername.setText(text2,TextView.BufferType.SPANNABLE);
 
         if(photo.getLikes()!=null) {
             holder.likeCount.setText(photo.getLikes().getCount());
@@ -85,16 +78,18 @@ public class FeedAdapter extends ArrayAdapter<Photo> {
             holder.commentsURL.setVisibility(View.VISIBLE);
 
             if(photo.getComments().getData()!=null && photo.getComments().getData().get(0).getCommentText()!=null) {
-                holder.comment_one.setText(photo.getComments().getData().get(0).getUser().getUsername()+" : ");
-                holder.comment_one.append(photo.getComments().getData().get(0).getCommentText());
+                Spannable commentOneText = new SpannableString(photo.getComments().getData().get(0).getUser().getUsername()+" : "+photo.getComments().getData().get(0).getCommentText());
+                commentOneText.setSpan(new ForegroundColorSpan(Color.parseColor("#2d5d82")),0,photo.getComments().getData().get(0).getUser().getUsername().length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.comment_one.setText(commentOneText,TextView.BufferType.SPANNABLE);
                 holder.comment_one.setVisibility(View.VISIBLE);
             }
+
             if(photo.getComments().getData()!=null && photo.getComments().getData().get(1).getCommentText()!=null) {
-                holder.comment_two.setText(photo.getComments().getData().get(1).getUser().getUsername()+" : ");
-                holder.comment_two.append(photo.getComments().getData().get(1).getCommentText());
+                Spannable commentTwoText = new SpannableString(photo.getComments().getData().get(1).getUser().getUsername()+" : "+photo.getComments().getData().get(1).getCommentText());
+                commentTwoText.setSpan(new ForegroundColorSpan(Color.parseColor("#2d5d82")),0,photo.getComments().getData().get(1).getUser().getUsername().length(),Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.comment_two.setText(commentTwoText,TextView.BufferType.SPANNABLE);
                 holder.comment_two.setVisibility(View.VISIBLE);
             }
-
 
         }
         Picasso.with(mContext)

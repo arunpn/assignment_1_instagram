@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/userName"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/userImage"
         android:layout_marginTop="10dp"
         android:text="44m"
         android:textColor="@color/text_color_gray"
