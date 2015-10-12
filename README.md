@@ -11,7 +11,5 @@
 
 ## Pending:
 1. Allow video posts to be played in full-screen using the VideoView
-2. Dual colors in TextView
-
 
 ![Output sample](https://github.com/arunpn/assignment_1_instagram/blob/master/codepath_instagram.gif)
